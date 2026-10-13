@@ -1,0 +1,586 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f3f3;
+    color: #171717;
+}
+
+.admin-page {
+    min-height: 100vh;
+    padding: 25px;
+}
+
+.admin-box {
+    width: 100%;
+    max-width: 430px;
+    margin: 60px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+    text-align: center;
+}
+
+.admin-logo {
+    width: 75px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.admin-box h1 {
+    margin-bottom: 8px;
+}
+
+.admin-box > p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+textarea,
+button {
+    font-family: inherit;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+button {
+    border: none;
+    background: #171717;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.dashboard {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.dashboard-header {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard-header > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-logo {
+    width: 60px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.dashboard-header h1 {
+    font-size: 24px;
+}
+
+.dashboard-header p {
+    color: #666;
+}
+
+.logout-button {
+    background: #b42318;
+}
+
+.product-form-box,
+.products-admin {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.product-form-box h2,
+.products-admin h2 {
+    margin-bottom: 20px;
+}
+
+.product-form-box label {
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.availability-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.availability-label input {
+    width: auto;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.secondary-button {
+    background: #777;
+}
+
+.admin-product {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.admin-product img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.admin-product-info {
+    flex: 1;
+}
+
+.admin-product-info h3 {
+    margin-bottom: 5px;
+}
+
+.admin-product-price {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.admin-product-status {
+    color: #187a3d;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.admin-product-status.off {
+    color: #b42318;
+}
+
+.admin-product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-button {
+    background: #555;
+}
+
+.delete-button {
+    background: #b42318;
+}
+
+@media (max-width: 700px) {
+
+    .admin-page {
+        padding: 12px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dashboard-header > div {
+        justify-content: center;
+    }
+
+    .logout-button {
+        width: 100%;
+    }
+
+    .admin-product {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-product img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .admin-product-actions {
+        flex-direction: row;
+    }
+
+    .admin-product-actions button {
+        flex: 1;
+    }
+}select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+  .link-button {
+    background: transparent;
+    color: #555;
+    padding: 8px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.link-button:hover {
+    background: transparent;
+    opacity: 0.7;
+}
+
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+}
+}
+.link-button {
+    background: transparent;
+    color: #555;
+    padding: 8px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.link-button:hover {
+    background: transparent;
+    opacity: 0.7;
+}
+#product-search,
+#product-filter {
+    margin-bottom: 15px;
+}
+
+#product-search {
+    width: 100%;
+}
+
+#product-filter {
+    width: 100%;
+}
+/* =========================================
+   PRODUCTOS A GRANEL - PANEL ADMIN
+========================================= */
+
+.bulk-orders-admin {
+    margin-top: 35px;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+/* TÍTULOS */
+
+.bulk-orders-admin h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+
+.bulk-orders-description {
+    margin: 0 0 22px;
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* FORMULARIO */
+
+#bulk-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    max-width: 600px;
+}
+
+
+#bulk-product-form label {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+
+#bulk-product-form input[type="text"],
+#bulk-product-form input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background: #f9fafb;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+
+#bulk-product-form input[type="text"]:focus,
+#bulk-product-form input[type="number"]:focus {
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* DISPONIBILIDAD */
+
+#new-bulk-product-available {
+    width: 18px;
+    height: 18px;
+    accent-color: #16a34a;
+}
+
+
+/* BOTÓN */
+
+#new-bulk-product-button {
+    margin-top: 12px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 11px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+#new-bulk-product-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+#new-bulk-product-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* MENSAJE */
+
+#new-bulk-product-message {
+    min-height: 20px;
+    margin: 5px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   LISTA DE PRODUCTOS A GRANEL
+========================================= */
+
+#admin-bulk-products-list {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px, 1fr)
+        );
+    gap: 18px;
+    margin-top: 20px;
+}
+
+
+/* TARJETA */
+
+#admin-bulk-products-list
+.bulk-order-admin-card {
+    padding: 20px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+
+#admin-bulk-products-list
+.bulk-order-admin-card:hover {
+    border-color: #cbd5e1;
+    box-shadow:
+        0 7px 20px
+        rgba(0, 0, 0, 0.06);
+}
+
+
+/* NOMBRE */
+
+#admin-bulk-products-list
+.bulk-order-admin-card h3 {
+    margin: 0 0 16px;
+    color: #111827;
+    font-size: 18px;
+}
+
+
+/* ETIQUETAS */
+
+#admin-bulk-products-list
+.bulk-order-admin-card label {
+    display: block;
+    margin-bottom: 7px;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* PRECIO */
+
+#admin-bulk-products-list
+.bulk-price-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: white;
+    font-size: 15px;
+    outline: none;
+}
+
+
+#admin-bulk-products-list
+.bulk-price-input:focus {
+    border-color: #2563eb;
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.10);
+}
+
+
+/* CHECKBOX */
+
+#admin-bulk-products-list
+.bulk-available-input {
+    width: 18px;
+    height: 18px;
+    accent-color: #16a34a;
+}
+
+
+/* BOTÓN GUARDAR */
+
+#admin-bulk-products-list
+.bulk-save-product {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #111827;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+#admin-bulk-products-list
+.bulk-save-product:hover {
+    background: #374151;
+}
+
+
+/* MENSAJE DE CADA PRODUCTO */
+
+#admin-bulk-products-list
+.bulk-product-message {
+    min-height: 18px;
+    margin: 10px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+    .bulk-orders-admin {
+        margin-top: 25px;
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+
+    .bulk-orders-admin h2 {
+        font-size: 21px;
+    }
+
+
+    #admin-bulk-products-list {
+        grid-template-columns: 1fr;
+    }
+
+    #new-bulk-product-button {
+        width: 100%;
+    }
+
+}

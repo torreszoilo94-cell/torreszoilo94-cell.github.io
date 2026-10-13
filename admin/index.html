@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administración | El Ingenioso Experto</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="admin-page">
+
+        <!-- LOGIN -->
+
+        <section
+            id="login-section"
+            class="admin-box"
+        >
+
+            <img
+                src="images/logo.png"
+                alt="El Ingenioso Experto"
+                class="admin-logo"
+            >
+
+            <h1>Administración</h1>
+
+            <p>
+                Inicia sesión para administrar tus productos.
+            </p>
+
+            <form id="login-form">
+
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="Correo electrónico"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Contraseña"
+                    required
+                >
+
+                <button type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+            <button
+                type="button"
+                id="forgot-password-button"
+                class="link-button"
+            >
+                ¿Olvidaste tu contraseña?
+            </button>
+
+            <p
+                id="login-message"
+                class="message"
+            ></p>
+
+        </section>
+
+
+        <!-- RECUPERAR CONTRASEÑA -->
+
+        <section
+            id="forgot-section"
+            class="admin-box"
+            style="display:none;"
+        >
+
+            <img
+                src="images/logo.png"
+                alt="El Ingenioso Experto"
+                class="admin-logo"
+            >
+
+            <h1>Recuperar contraseña</h1>
+
+            <p>
+                Escribe tu correo para recibir el enlace.
+            </p>
+
+            <form id="forgot-form">
+
+                <input
+                    type="email"
+                    id="forgot-email"
+                    placeholder="Correo electrónico"
+                    required
+                >
+
+                <button type="submit">
+                    Enviar enlace
+                </button>
+
+            </form>
+
+            <button
+                type="button"
+                id="back-login-button"
+                class="link-button"
+            >
+                Volver al inicio de sesión
+            </button>
+
+            <p
+                id="forgot-message"
+                class="message"
+            ></p>
+
+        </section>
+
+
+        <!-- NUEVA CONTRASEÑA -->
+
+        <section
+            id="recovery-section"
+            class="admin-box"
+            style="display:none;"
+        >
+
+            <img
+                src="images/logo.png"
+                alt="El Ingenioso Experto"
+                class="admin-logo"
+            >
+
+            <h1>Nueva contraseña</h1>
+
+            <p>
+                Escribe tu nueva contraseña.
+            </p>
+
+            <form id="recovery-form">
+
+                <input
+                    type="password"
+                    id="new-password"
+                    placeholder="Nueva contraseña"
+                    minlength="6"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="confirm-password"
+                    placeholder="Repetir contraseña"
+                    minlength="6"
+                    required
+                >
+
+                <button type="submit">
+                    Cambiar contraseña
+                </button>
+
+            </form>
+
+            <p
+                id="recovery-message"
+                class="message"
+            ></p>
+
+        </section>
+
+
+        <!-- PANEL ADMIN -->
+
+        <section
+            id="dashboard-section"
+            class="dashboard"
+            style="display:none;"
+        >
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <img
+                        src="images/logo.png"
+                        alt="El Ingenioso Experto"
+                        class="dashboard-logo"
+                    >
+
+                    <div>
+
+                        <h1>El Ingenioso Experto</h1>
+
+                        <p>
+                            Administración de productos
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="logout-button"
+                    class="logout-button"
+                >
+                    Cerrar sesión
+                </button>
+
+            </header>
+
+
+            <!-- FORMULARIO DE PRODUCTO -->
+
+            <section class="product-form-box">
+
+                <h2 id="form-title">
+                    Agregar producto
+                </h2>
+
+                <form id="product-form">
+
+                    <input
+                        type="hidden"
+                        id="product-id"
+                    >
+
+                    <label>
+                        Nombre del producto
+                    </label>
+
+                    <input
+                        type="text"
+                        id="product-name"
+                        placeholder="Ej: Detergente Líquido"
+                        required
+                    >
+
+                    <label>
+                        Categoría
+                    </label>
+
+                    <input
+                        type="text"
+                        id="product-category"
+                        placeholder="Ej: Limpieza"
+                    >
+
+                    <label>
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="product-description"
+                        placeholder="Descripción del producto"
+                    ></textarea>
+
+                    <label>
+                        Precio
+                    </label>
+
+                    <input
+                        type="text"
+                        id="product-price"
+                        placeholder="Ej: $200"
+                    >
+                  
+<!-- OFERTA O PROMOCIÓN -->
+
+<div class="promotion-fields">
+
+    <h3>🏷️ Oferta o promoción</h3>
+
+    <label for="product-on-sale">
+        Activar oferta
+    </label>
+
+    <select id="product-on-sale">
+        <option value="false">No, precio normal</option>
+        <option value="true">Sí, está en oferta</option>
+    </select>
+
+    <label for="product-sale-price">
+        Precio rebajado
+    </label>
+
+    <input
+        type="number"
+        id="product-sale-price"
+        placeholder="Ejemplo: 150"
+        min="0"
+        step="0.01"
+    >
+
+    <label for="product-sale-start">
+        Fecha de inicio
+    </label>
+
+    <input
+        type="date"
+        id="product-sale-start"
+    >
+
+    <label for="product-sale-end">
+        Fecha de finalización
+    </label>
+
+    <input
+        type="date"
+        id="product-sale-end"
+    >
+
+    <p>
+        Si no activas la oferta, se mantiene el precio normal.
+    </p>
+
+</div>
+
+
+                    <label>
+                        Foto
+                    </label>
+
+                    <input
+                        type="file"
+                        id="product-image"
+                        accept="image/*"
+                    >
+
+                    <label>
+                        Estado del producto
+                    </label>
+
+                    <select id="product-available">
+
+                        <option value="true">
+                            Disponible
+                        </option>
+
+                        <option value="false">
+                            Agotado
+                        </option>
+
+                    </select>
+
+                    <div class="form-buttons">
+
+                        <button type="submit">
+                            Guardar producto
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancel-edit"
+                            class="secondary-button"
+                            style="display:none;"
+                        >
+                            Cancelar edición
+                        </button>
+
+                    </div>
+
+                    <p
+                        id="product-message"
+                        class="message"
+                    ></p>
+
+                </form>
+
+            </section>
+<!-- HORARIO DEL NEGOCIO -->
+
+<section class="product-form-box">
+
+    <h2>Horario del negocio</h2>
+
+    <form id="business-hours-form">
+
+        <label>Fecha</label>
+
+        <input
+            type="date"
+            id="business-date"
+            required
+        >
+
+        <label>Estado</label>
+
+        <select id="business-open">
+            <option value="true">🟢 Abierto</option>
+            <option value="false">🔴 Cerrado</option>
+        </select>
+
+        <label>Hora de apertura</label>
+
+        <input
+            type="time"
+            id="business-open-time"
+            value="08:00"
+        >
+
+        <label>Hora de cierre</label>
+
+        <input
+            type="time"
+            id="business-close-time"
+            value="18:00"
+        >
+
+        <button type="submit">
+            Guardar horario
+        </button>
+
+        <p
+            id="business-hours-message"
+            class="message"
+        ></p>
+
+    </form>
+
+</section>
+          <!-- =========================
+     PRODUCTOS A GRANEL
+========================= -->
+
+<section class="bulk-orders-admin">
+
+    <h2>🧴 Productos a granel</h2>
+
+    <p class="bulk-orders-description">
+        Controla qué productos vendes a granel y su precio por litro.
+    </p>
+
+    <div
+        id="admin-bulk-products-list"
+        class="admin-bulk-orders-list"
+    >
+        Cargando productos a granel...
+    </div>
+
+</section>
+          <!-- =========================
+     AÑADIR PRODUCTO A GRANEL
+========================= -->
+
+<section class="bulk-orders-admin">
+
+    <h2>🧴 Añadir producto a granel</h2>
+
+    <p class="bulk-orders-description">
+        Crea productos que podrán venderse por litros.
+    </p>
+
+
+    <form id="bulk-product-form">
+
+        <label for="new-bulk-product-name">
+            Nombre del producto
+        </label>
+
+        <input
+            type="text"
+            id="new-bulk-product-name"
+            placeholder="Ejemplo: Suavizante"
+            required
+        >
+
+
+        <label for="new-bulk-product-price">
+            Precio por litro
+        </label>
+
+        <input
+            type="number"
+            id="new-bulk-product-price"
+            placeholder="Ejemplo: 150"
+            min="0"
+            step="0.01"
+            required
+        >
+
+
+        <label
+            style="
+                display:flex;
+                align-items:center;
+                gap:10px;
+                margin:15px 0;
+            "
+        >
+
+            <input
+                type="checkbox"
+                id="new-bulk-product-available"
+                checked
+            >
+
+            Disponible para venta a granel
+
+        </label>
+
+
+        <button
+            type="submit"
+            id="new-bulk-product-button"
+        >
+            ➕ Añadir producto a granel
+        </button>
+
+
+        <p
+            id="new-bulk-product-message"
+        ></p>
+
+    </form>
+
+</section>
+
+<!-- =========================
+     PEDIDOS A GRANEL
+========================= -->
+
+<section class="bulk-orders-admin">
+
+    <h2>📦 Pedidos a granel</h2>
+
+    <p class="bulk-orders-description">
+        Controla aquí los pedidos realizados por los clientes.
+    </p>
+
+    <div class="bulk-orders-controls">
+
+        <select id="bulk-order-filter">
+
+            <option value="all">
+                Todos los pedidos
+            </option>
+
+            <option value="pending">
+                🟡 Pendientes
+            </option>
+
+            <option value="preparing">
+                🔵 En preparación
+            </option>
+
+            <option value="ready">
+                🟢 Listos para recoger
+            </option>
+
+            <option value="delivered">
+                ⚫ Entregados
+            </option>
+
+            <option value="cancelled">
+                🔴 Cancelados
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        id="admin-bulk-orders-list"
+        class="admin-bulk-orders-list"
+    >
+
+        Cargando pedidos...
+
+    </div>
+
+</section>
+          
+<!-- MODERACIÓN DE VALORACIONES -->
+<section class="admin-section" id="reviews-section">
+    <h2>⭐ Valoraciones de clientes</h2>
+    <p>Revisa las opiniones antes de publicarlas.</p>
+
+    <div class="review-admin-filters">
+        <button type="button" data-review-filter="pending">
+            Pendientes
+        </button>
+
+        <button type="button" data-review-filter="approved">
+            Aprobadas
+        </button>
+
+        <button type="button" data-review-filter="all">
+            Todas
+        </button>
+    </div>
+
+    <div id="admin-reviews-list">
+        <p>Las valoraciones aparecerán aquí.</p>
+    </div>
+</section>
+
+            <!-- LISTA DE PRODUCTOS -->
+
+            <section class="products-admin">
+
+                <h2>
+                    Mis productos
+                </h2>
+
+                <input
+                    type="text"
+                    id="product-search"
+                    placeholder="🔎 Buscar producto..."
+                >
+
+                <select id="product-filter">
+
+                    <option value="all">
+                        Todos los productos
+                    </option>
+
+                    <option value="available">
+                        Disponibles
+                    </option>
+
+                    <option value="unavailable">
+                        Agotados
+                    </option>
+
+                </select>
+
+                <div id="admin-products-list">
+                    Cargando productos...
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
