@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de productos de limpieza de El Ingenioso Experto.">
+    <title>Productos | El Ingenioso Experto</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO Y MENÚ -->
+    
+<header class="page-back-header">
+    <a href="index.html" class="back-home-button">
+        ← Volver al inicio
+    </a>
+</header>
+
+
+    <!-- CATÁLOGO -->
+    <main class="products-section">
+        <div class="section-heading">
+            <h1>Nuestros productos</h1>
+            <p>Encuentra el producto de limpieza que necesitas.</p>
+        </div>
+
+        <div class="catalog-tools">
+            <input
+                type="search"
+                id="product-search"
+                placeholder="Buscar producto por nombre..."
+                aria-label="Buscar producto"
+            >
+
+            <select id="category-filter" aria-label="Filtrar por categoría">
+                <option value="">Todas las categorías</option>
+            </select>
+        </div>
+
+        <div id="product-grid" class="product-grid">
+            <p>Cargando productos...</p>
+        </div>
+
+        <p id="catalog-message" aria-live="polite"></p>
+    </main>
+
+    <footer>
+        <p>© El Ingenioso Experto. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="productos.js"></script>
+
+</body>
+</html>

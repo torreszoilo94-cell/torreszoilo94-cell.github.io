@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Consultar pedido | El Ingenioso Experto
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="seguimiento.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+
+    <header class="seguimiento-header">
+
+        <a
+            href="index.html"
+            class="volver"
+        >
+            ← Volver
+        </a>
+
+
+        <img
+            src="images/logo.png"
+            alt="El Ingenioso Experto"
+        >
+
+    </header>
+
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+
+    <main class="seguimiento-container">
+
+
+        <section class="seguimiento-intro">
+
+            <p class="eyebrow">
+                EL INGENIOSO EXPERTO
+            </p>
+
+
+            <h1>
+                Consulta tu pedido
+            </h1>
+
+
+            <p>
+                Introduce el código privado
+                que recibiste al realizar tu pedido.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             BUSCADOR
+        ========================== -->
+
+        <section class="seguimiento-box">
+
+
+            <form id="tracking-form">
+
+
+                <label for="tracking-code">
+                    Código privado
+                </label>
+
+
+                <input
+                    type="text"
+                    id="tracking-code"
+                    placeholder="Ejemplo: IE-7K4P9X2M"
+                    autocomplete="off"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                >
+                    Consultar pedido
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =========================
+                 RESULTADO
+            ========================== -->
+
+            <div
+                id="tracking-result"
+                class="tracking-result"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SUPABASE
+    ========================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =========================
+         SEGUIMIENTO JS
+    ========================== -->
+
+    <script
+        src="seguimiento.js"
+    ></script>
+
+
+</body>
+
+</html>

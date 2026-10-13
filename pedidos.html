@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pedidos a granel | El Ingenioso Experto</title>
+
+    <link
+        rel="stylesheet"
+        href="pedidos.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+
+    <header class="pedidos-header">
+
+        <a
+            href="index.html"
+            class="volver"
+        >
+            ← Volver
+        </a>
+
+        <img
+            src="images/logo.png"
+            alt="El Ingenioso Experto"
+        >
+
+    </header>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
+    <main class="pedidos-container">
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="pedido-intro">
+
+            <p class="eyebrow">
+                EL INGENIOSO EXPERTO
+            </p>
+
+            <h1>
+                Pedidos a granel
+            </h1>
+
+            <p>
+                Solicita tus productos a granel
+                indicando la cantidad que necesitas.
+            </p>
+
+        </section>
+
+
+        <!-- FORMULARIO -->
+
+        <section class="pedido-box">
+
+            <form id="bulk-order-form">
+
+
+                <label for="bulk-product">
+                    Producto
+                </label>
+
+                <select
+                    id="bulk-product"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona un producto
+                    </option>
+
+                </select>
+
+
+                <label for="bulk-liters">
+                    Cantidad de litros
+                </label>
+
+                <input
+                    type="number"
+                    id="bulk-liters"
+                    min="1"
+                    step="1"
+                    placeholder="Ejemplo: 20"
+                    required
+                >
+
+
+                <label for="bulk-name">
+                    Nombre y apellidos
+                </label>
+
+                <input
+                    type="text"
+                    id="bulk-name"
+                    placeholder="Tu nombre completo"
+                    required
+                >
+
+
+                <label for="bulk-identity">
+                    Carnet de identidad
+                </label>
+
+                <input
+    type="text"
+    id="bulk-identity"
+    placeholder="11 dígitos"
+    inputmode="numeric"
+    maxlength="11"
+    minlength="11"
+    pattern="[0-9]{11}"
+    required
+>
+
+
+                <label for="bulk-phone">
+                    Teléfono
+                </label>
+
+          <input
+    type="tel"
+    id="bulk-phone"
+    placeholder="Número de teléfono"
+    inputmode="numeric"
+    maxlength="8"
+    minlength="8"
+    pattern="[0-9]{8}"
+    required
+>
+
+
+                <label for="bulk-notes">
+                    Observaciones
+                </label>
+
+                <textarea
+                    id="bulk-notes"
+                    placeholder="Alguna indicación para tu pedido..."
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                >
+                    Enviar pedido
+                </button>
+
+
+                <p
+                    id="bulk-order-message"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- NUESTRO JAVASCRIPT -->
+
+    <script src="bulk-orders.js"></script>
+
+</body>
+
+</html>

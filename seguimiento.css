@@ -1,0 +1,512 @@
+
+/* =========================
+   SEGUIMIENTO DE PEDIDOS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.78),
+            rgba(255, 255, 255, 0.78)
+        ),
+        url("images/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #171717;
+    min-height: 100vh;
+}
+
+/* ENCABEZADO */
+
+.seguimiento-header {
+    width: 100%;
+    min-height: 75px;
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 4%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.seguimiento-header img {
+    width: 115px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* VOLVER */
+
+.volver {
+    text-decoration: none;
+    color: #222;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.volver:hover {
+    background: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+/* CONTENEDOR */
+
+.seguimiento-container {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 65px 0 90px;
+}
+
+/* INTRO */
+
+.seguimiento-intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.seguimiento-intro h1 {
+    font-size: clamp(34px, 7vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.seguimiento-intro p:last-child {
+    max-width: 600px;
+    margin: auto;
+    color: #555;
+    font-size: 17px;
+}
+
+/* CAJA Y FORMULARIO */
+
+.seguimiento-box {
+    width: min(650px, 100%);
+    margin: auto;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+}
+
+#tracking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#tracking-form label {
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+#tracking-form input {
+    width: 100%;
+    border: 1px solid #d5d5d5;
+    border-radius: 9px;
+    padding: 13px 14px;
+    font-family: inherit;
+    font-size: 16px;
+    background: #fff;
+    color: #171717;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#tracking-form input:focus {
+    border-color: #222;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+#tracking-form button {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #171717;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#tracking-form button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+#tracking-form button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+
+/* MENSAJES */
+
+.tracking-result {
+    margin-top: 25px;
+}
+
+.tracking-message {
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.tracking-message.error {
+    background: #fff0f0;
+    color: #a51f1f;
+}
+
+.tracking-message.loading {
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* TARJETA DEL PEDIDO */
+
+.tracking-card {
+    border: 1px solid #e2e2e2;
+    border-radius: 16px;
+    padding: 22px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.tracking-title {
+    font-size: 23px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    margin-bottom: 18px;
+}
+
+.tracking-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+.tracking-label {
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status-pending {
+    background: #fff0c7;
+    color: #765000;
+}
+
+.status-preparing {
+    background: #dcecff;
+    color: #174f92;
+}
+
+.status-ready {
+    background: #dff5e5;
+    color: #176536;
+}
+
+.status-delivered {
+    background: #e8e8e8;
+    color: #333;
+}
+
+.status-cancelled,
+.status-unknown {
+    background: #ffe0e0;
+    color: #a51f1f;
+}
+
+/* BARRA DE PROGRESO */
+
+.progress-section {
+    margin-top: 25px;
+    padding: 20px 0 24px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.progress-section h3,
+.tracking-details h3 {
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+
+.progress-description {
+    color: #555;
+    line-height: 1.5;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.progress-bar {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.progress-segment {
+    flex: 1;
+    height: 7px;
+    border-radius: 20px;
+    background: #e5e5e5;
+}
+
+.progress-segment.completed {
+    background: #25864a;
+}
+
+.progress-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.progress-step {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    color: #777;
+    font-size: 12px;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    background: #fff;
+    color: #666;
+    font-weight: 700;
+}
+
+.progress-step.completed .step-number {
+    border-color: #25864a;
+    background: #25864a;
+    color: #fff;
+}
+
+.progress-step.current {
+    color: #171717;
+    font-weight: 700;
+}
+
+.progress-step.current .step-number {
+    border-color: #25864a;
+    box-shadow: 0 0 0 4px rgba(37, 134, 74, 0.13);
+}
+
+.progress-cancelled {
+    background: #fff0f0;
+    color: #a51f1f;
+    border: 1px solid #f2caca;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* DETALLES */
+
+.tracking-details {
+    margin-top: 24px;
+}
+
+.tracking-details h3 {
+    margin-bottom: 12px;
+}
+
+.tracking-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.tracking-row:last-child {
+    border-bottom: none;
+}
+
+.tracking-value {
+    text-align: right;
+    color: #444;
+    overflow-wrap: anywhere;
+}
+
+.tracking-products-title {
+    font-weight: 700;
+    margin: 12px 0 8px;
+}
+
+.tracking-products {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tracking-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 9px;
+}
+
+.tracking-product-name {
+    overflow-wrap: anywhere;
+}
+
+.tracking-product-quantity {
+    white-space: nowrap;
+    color: #444;
+    font-size: 14px;
+}
+
+/* MÓVIL */
+
+@media (max-width: 700px) {
+    .seguimiento-header {
+        min-height: 70px;
+        padding: 8px 15px;
+    }
+
+    .seguimiento-header img {
+        width: 100px;
+    }
+
+    .volver {
+        font-size: 14px;
+        padding: 9px 10px;
+    }
+
+    .seguimiento-container {
+        width: 92%;
+        padding: 45px 0 70px;
+    }
+
+    .seguimiento-intro {
+        margin-bottom: 25px;
+    }
+
+    .seguimiento-intro h1 {
+        font-size: 38px;
+    }
+
+    .seguimiento-intro p:last-child {
+        font-size: 16px;
+    }
+
+    .seguimiento-box {
+        padding: 22px 18px;
+        border-radius: 15px;
+    }
+
+    .tracking-card {
+        padding: 17px 13px;
+    }
+
+    .tracking-title {
+        font-size: 21px;
+    }
+
+    .tracking-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .tracking-value {
+        text-align: left;
+    }
+
+    .progress-steps {
+        gap: 3px;
+    }
+
+    .progress-step {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .step-number {
+        width: 27px;
+        height: 27px;
+        font-size: 12px;
+    }
+
+    .tracking-product {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .tracking-product-quantity {
+        white-space: normal;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
